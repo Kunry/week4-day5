@@ -1,0 +1,17 @@
+<h1>{{username}}</h1>
+
+<p>{{email}}</p>
+
+<form action="/user/{{_id}}" method="post">
+  <label for="">Username</label>
+  <input type="text" name="username" value="{{username}}">
+  <label for="">Email</label>
+  <input type="text" name="email" value="{{email}}">
+
+  <button type="submit">Update</button>
+</form>
+
+<a href="/user/delete/{{_id}}">DELETE O.O</a>
+<br />
+
+<a href="/post/create/{{_id}}">Create Post</a>
