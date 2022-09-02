@@ -1,3 +1,27 @@
+{{!-- 
+Realizamos una llamada tipo POST a la ruta 'localhost:3000/post'
+
+Un ejemplo de valor que pasamos al body es:
+
+{
+  title: ''
+  description: ''
+  user: ''
+}
+
+Se ejecuta el router que se encuentra en el archivo routes/post.routes.js:
+
+router.post('/', (req, res, next) => {
+  const { title, description, user } = req.body;
+  PostModel.create({ title, description, author: user })
+  .then((post) => {
+    res.redirect('/');
+  })
+  .catch(err => next(err))
+})
+
+
+ --}}
 <form action="/post" method="post">
 
 <label for="">Title</label>

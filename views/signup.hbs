@@ -1,3 +1,34 @@
+
+{{!-- 
+Este formulario lo que hace es una llamada POST a la ruta localhost:3000/signup no confundir con lo ruta GET.
+
+La información que se le pasa será un objecto que cada key sera cada uno del name de los inputs.
+
+{
+  name: ''
+  email: ''
+  password: ''
+}
+
+
+Se ejecuta el router que se encuentra en el archivo routes/index.routes.js:
+  router.post('/signup', (req, res, next) => {
+    console.log(req.body);
+    // const username = req.body.username;
+    // const email = req.body.email;
+    // const password = req.body.password;
+    const { name, email, password } = req.body;
+    console.log({ name, email, password });
+    UserModel.create({ username: name, email, password })
+    .then((user) => {
+      res.redirect(`/user/${user._id}`)
+    })
+    .catch((err) => {
+      next(err);
+    })
+  })
+
+--}}
 <form action="/signup" method="post">
   <label for="">Username</label>
   <input type="text" name="name" >

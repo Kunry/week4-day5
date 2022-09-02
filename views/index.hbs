@@ -1,4 +1,12 @@
 <h1>{{appTitle}} 🚀</h1>
 <p>Welcome Ironhacker!</p>
 
+
+{{!-- Hacemos una petición GET a la ruta localhost:3000/signup para que nos renderice la vista del signup
+La ruta la cual recibe se encuentra en el archivo `routes/index.routes.js` y la llamada es:
+
+router.get('/signup', (_req, res) => {
+  res.render('signup');
+})
+ --}}
 <a href="/signup"> Sign Up</a>

@@ -9,7 +9,27 @@
   <p>{{comment}}</p>
 {{/each}}
 
+{{!-- 
+Se ejecuta la ruta localhost:3000/comment con el método POST
 
+Se ejecuta el router que se encuentra en el archivo routes/commnet.routes.js:
+
+router.post('/', (req, res, next) => {
+  const { user, comment, post } = req.body;
+  CommentModel.create({ user, comment, post })
+    .then((newComment) => {
+      return PostModel.updateOne(
+        { _id: post },
+        { $push: { comments: newComment._id } }
+      );
+    })
+    .then(() => {
+      res.redirect(`/post/${post}`);
+    })
+    .catch((err) => next(err));
+});
+
+ --}}
 <form action="/comment/" method="post">
 
   <label for="">comment</label>

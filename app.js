@@ -27,6 +27,18 @@ app.locals.appTitle = `${capitalized(projectName)} created with IronLauncher`;
 // 👇 Start handling routes here
 const index = require("./routes/index.routes");
 app.use("/", index);
+
+/**
+ * Recordamos que siempre que creemos un archivo de rutas tenemos que requerirlo para poder utilizarlo
+ * Los archivos que estamos utilizando se encuentran en la carpeta `routes/*`
+ * Cada vez que requiramos un archivo tendremos que configurar express para que lo use
+ * Para ello lo que hacemos es utilizar el método `app.use` en el cual le tendremos
+ * que pasar como primer parámetro el raíz de todas las rutas y como segundo
+ * el archivo donde se encuentran configuradas.
+ * 
+ * Ej: Todas las rutas del archivo './routes/user.routes' empezarán por `/user`
+ */
+
 const user = require('./routes/user.routes');
 app.use('/user', user);
 const post = require('./routes/post.routes');
